@@ -10,6 +10,12 @@
     
     <dependencies>
         <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.16</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <scope>provided</scope>
@@ -86,6 +92,6 @@
             <url>http://download.java.net/maven/glassfish</url>
         </pluginRepository>
     </pluginRepositories>
-    <name>petcatalogGlassFish</name>
+    <name>Graficos</name>
 </project>
 
