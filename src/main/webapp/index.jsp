@@ -40,7 +40,7 @@ body {
       
     
     %>
-    <img src="ChartServlet" />
+    <img src="ChartServlet" /><br><br>
     Descargar Excel <a href="HSSFCreate">Descargar</a> 
 </body>
 </html>
