@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  * CREATE TABLE Depto( id_depto integer, nom_depto varchar(40), PRIMARY
  * KEY(id_depto) );
  */
-public class ObraDAO implements IBaseDatos<Colmena> {
+public class ColmenaDAO implements IBaseDatos<Colmena> {
 
     /**
      * Funcion que permite obtener una lista de los departamentos existentes en
@@ -37,7 +37,7 @@ public class ObraDAO implements IBaseDatos<Colmena> {
         try {
             connection = Conexion.getConnection();
         } catch (URISyntaxException ex) {
-            Logger.getLogger(ObraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColmenaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             Statement st = connection.createStatement();
@@ -77,7 +77,7 @@ public class ObraDAO implements IBaseDatos<Colmena> {
         try {
             connection = Conexion.getConnection();
         } catch (URISyntaxException ex) {
-            Logger.getLogger(ObraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColmenaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         String query = " insert into Obra (nombreAutor,nombreObra,descripcion,estilo,valor)" + " values (?,?,?,?,?)";
         PreparedStatement preparedStmt = null;
@@ -105,7 +105,7 @@ public class ObraDAO implements IBaseDatos<Colmena> {
         try {
             connection = Conexion.getConnection();
         } catch (URISyntaxException ex) {
-            Logger.getLogger(ObraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColmenaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         String query = "update Obra set nom_depto = ? where id_depto = ?";
         PreparedStatement preparedStmt = null;
@@ -137,7 +137,7 @@ public class ObraDAO implements IBaseDatos<Colmena> {
         try {
             connection = Conexion.getConnection();
         } catch (URISyntaxException ex) {
-            Logger.getLogger(ObraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColmenaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         String query = "delete from Obra where nombreObra = ?";
         PreparedStatement preparedStmt = null;
@@ -157,7 +157,7 @@ public class ObraDAO implements IBaseDatos<Colmena> {
         try {
             connection = Conexion.getConnection();
         } catch (URISyntaxException ex) {
-            Logger.getLogger(ObraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColmenaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             Statement st = connection.createStatement();

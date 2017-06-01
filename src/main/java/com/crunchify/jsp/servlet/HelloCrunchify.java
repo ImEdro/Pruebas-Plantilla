@@ -1,6 +1,6 @@
 package com.crunchify.jsp.servlet;
  
-import edu.co.sergio.mundo.dao.ObraDAO;
+import edu.co.sergio.mundo.dao.ColmenaDAO;
 import edu.co.sergio.mundo.vo.Colmena;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -20,7 +20,7 @@ public class HelloCrunchify extends HttpServlet {
         String autor = request.getParameter("autor");
         String valor = request.getParameter("valor");
         //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
-        ObraDAO dao = new ObraDAO();
+        ColmenaDAO dao = new ColmenaDAO();
         
         Colmena obra = new Colmena();
         obra.setPaneles_con_alimento(autor);

@@ -5,7 +5,7 @@
  */
 package com.crunchify.jsp.servlet;
 
-import edu.co.sergio.mundo.dao.ObraDAO;
+import edu.co.sergio.mundo.dao.ColmenaDAO;
 import edu.co.sergio.mundo.vo.Colmena;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -39,7 +39,7 @@ public class ChartServlet extends HttpServlet {
 	public JFreeChart getChart() {
 		
                 DefaultPieDataset dataset = new DefaultPieDataset();
-                ObraDAO dAO=new ObraDAO();
+                ColmenaDAO dAO=new ColmenaDAO();
 	        //Crear la capa de servicios que se enlace con el DAO
                 ArrayList<Colmena> arrayList=(ArrayList<Colmena>) dAO.findAll();
                            
