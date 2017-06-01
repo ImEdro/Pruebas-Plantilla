@@ -44,7 +44,7 @@ public class HSSFCreate extends HttpServlet {
         HSSFSheet sheet = wb.createSheet("new sheet");
 
         Map<String, Object[]> data = new HashMap<String, Object[]>();
-        ArrayList<Obra> arrayList = (ArrayList<Obra>) dAO.findAll();
+        ArrayList<Obra> arrayList = (ArrayList<Obra>) dAO.findAll2();
         data.put("1", new Object[]{"Nombre Autor", "Nombre Obra", "Descripcion", "Estilo", "Valor"});
         for (int i = 0; i < arrayList.size(); i++) {
             String j = "" + i+1;
