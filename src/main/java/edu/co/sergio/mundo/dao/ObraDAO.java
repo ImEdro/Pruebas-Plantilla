@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import edu.co.sergio.mundo.vo.Obra;
+import edu.co.sergio.mundo.vo.Colmena;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  * CREATE TABLE Depto( id_depto integer, nom_depto varchar(40), PRIMARY
  * KEY(id_depto) );
  */
-public class ObraDAO implements IBaseDatos<Obra> {
+public class ObraDAO implements IBaseDatos<Colmena> {
 
     /**
      * Funcion que permite obtener una lista de los departamentos existentes en
@@ -30,9 +30,9 @@ public class ObraDAO implements IBaseDatos<Obra> {
      * @return List<Departamento> Retorna la lista de Departamentos existentes
      * en la base de datos
      */
-    public List<Obra> findAll() {
-        List<Obra> obras = null;
-        String query = "Select nombreAutor, valor from (select nombreAutor,sum(valor) as valor from (artista natural join obra) group by nombreAutor ) as resultao where valor>10000 ;";
+    public List<Colmena> findAll() {
+        List<Colmena> obras = null;
+        String query = "Select panales_con_alimento form Colmena where id_colmena = 1;";
         Connection connection = null;
         try {
             connection = Conexion.getConnection();
@@ -46,14 +46,12 @@ public class ObraDAO implements IBaseDatos<Obra> {
             double valor = 0;
 
             while (rs.next()) {
-                Obra registro = new Obra();
+                Colmena registro = new Colmena();
                 if (obras == null) {
-                    obras = new ArrayList<Obra>();
+                    obras = new ArrayList<Colmena>();
                 }
-                Autor = rs.getString("nombreAutor");
-                registro.setNombreAutor(Autor);
-                valor = rs.getDouble("valor");
-                registro.setValor(valor);
+                Autor = rs.getString("panales_con_alimento");
+                registro.setPaneles_con_alimento(Autor);
                 obras.add(registro);
             }
             st.close();
@@ -73,7 +71,7 @@ public class ObraDAO implements IBaseDatos<Obra> {
      * @param Departamento recibe un objeto de tipo Departamento
      * @return boolean retorna true si la operacion de insercion es exitosa.
      */
-    public boolean insert(Obra t) {
+    public boolean insert(Colmena t) {
         boolean result = false;
         Connection connection = null;
         try {
@@ -85,11 +83,8 @@ public class ObraDAO implements IBaseDatos<Obra> {
         PreparedStatement preparedStmt = null;
         try {
             preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setString(1, t.getNombreAutor());
-            preparedStmt.setString(2, t.getNombreObra());
-            preparedStmt.setString(3, t.getDescripcion());
-            preparedStmt.setString(4, t.getEstilo());
-            preparedStmt.setDouble(5, t.getValor());
+            preparedStmt.setString(1, t.getPaneles_con_alimento());
+            preparedStmt.setDouble(5, t.getKilos_Miel());
             result = preparedStmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -104,7 +99,7 @@ public class ObraDAO implements IBaseDatos<Obra> {
      * @param Departamento recibe un objeto de tipo Departamento
      * @return boolean retorna true si la operacion de actualizacion es exitosa.
      */
-    public boolean update(Obra t) {
+    public boolean update(Colmena t) {
         boolean result = false;
         Connection connection = null;
         try {
@@ -136,7 +131,7 @@ public class ObraDAO implements IBaseDatos<Obra> {
      * @param Departamento recibe un objeto de tipo Departamento
      * @return boolean retorna true si la operacion de borrado es exitosa.
      */
-    public boolean delete(Obra t) {
+    public boolean delete(Colmena t) {
         boolean result = false;
         Connection connection = null;
         try {
@@ -148,7 +143,6 @@ public class ObraDAO implements IBaseDatos<Obra> {
         PreparedStatement preparedStmt = null;
         try {
             preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setString(1, t.getNombreObra());
             result = preparedStmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -156,9 +150,9 @@ public class ObraDAO implements IBaseDatos<Obra> {
 
         return result;
     }
-    public List<Obra> findAll2() {
-        List<Obra> departamentos = null;
-        String query = "SELECT nombreAutor,nombreObra,descripcion,estilo,valor FROM Obra";
+    public List<Colmena> findAll2() {
+        List<Colmena> departamentos = null;
+        String query = "SELECT Kilos_Miel FROM Recolector";
         Connection connection = null;
         try {
             connection = Conexion.getConnection();
@@ -169,32 +163,17 @@ public class ObraDAO implements IBaseDatos<Obra> {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(query);
             
-            String autor = null;
-            String nombre = null;
-            String descripcion = null;
-            String estilo = null;
             double valor = 0;
 
             while (rs.next()) {
                 if (departamentos == null) {
-                    departamentos = new ArrayList<Obra>();
+                    departamentos = new ArrayList<Colmena>();
                 }
 
-                Obra registro = new Obra();
-                autor = rs.getString("nombreAutor");
-                registro.setNombreAutor(autor);
-
-                nombre = rs.getString("nombreObra");
-                registro.setNombreObra(nombre);
+                Colmena registro = new Colmena();
                 
-                descripcion = rs.getString("descripcion");
-                registro.setDescripcion(descripcion);
-                
-                estilo = rs.getString("estilo");
-                registro.setEstilo(estilo);
-                
-                valor = rs.getDouble("valor");
-                registro.setValor(valor);
+                valor = rs.getDouble("Kilos_Miel");
+                registro.setKilos_Miel(valor);
 
                 departamentos.add(registro);
             }

@@ -17,29 +17,7 @@ body {
 <title>Crunchify JSP Servlet Example</title>
 </head>
 <body>
-    <div align="center" style="margin-top: 50px;">
-        <form action="CrunchifyServlet">
-           Autor:  <input type="text" name="autor" size="20px"> <br>
-           Nombre:  <input type="text" name="nombre" size="20px"> <br>
-           Decripcion:  <input type="text" name="descripcion" size="20px"> <br>
-           Estilo:  <input type="text" name="estilo" size="20px"> <br>
-           Valor:  <input type="text" name="valor" size="20px"> <br>
-        <input type="submit" value="submit">
-        </form>
-     </div>
- 
-    <%
-       if( request.getAttribute("obras")!=null){
-          List<Obra> obras  = (List<Obra>)request.getAttribute("obras");
-           for (Obra obra : obras) {
-         %>      
-         <h1> <%=obra.getNombreAutor()%> </h1><br/> 
-         <%      
-          }
-       }
-      
-    
-    %>
+
     <img src="ChartServlet" />
     <img src="ChartServlet2" /><br><br>
     Descargar Excel <a href="HSSFCreate">Descargar</a> 

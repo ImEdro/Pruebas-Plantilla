@@ -6,7 +6,7 @@
 package com.crunchify.jsp.servlet;
 
 import edu.co.sergio.mundo.dao.ObraDAO;
-import edu.co.sergio.mundo.vo.Obra;
+import edu.co.sergio.mundo.vo.Colmena;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.io.IOException;
@@ -41,18 +41,18 @@ public class ChartServlet extends HttpServlet {
                 DefaultPieDataset dataset = new DefaultPieDataset();
                 ObraDAO dAO=new ObraDAO();
 	        //Crear la capa de servicios que se enlace con el DAO
-                ArrayList<Obra> arrayList=(ArrayList<Obra>) dAO.findAll();
+                ArrayList<Colmena> arrayList=(ArrayList<Colmena>) dAO.findAll();
                 double sum = 0;
                 for (int i = 0; i < arrayList.size(); i++) {
-                sum=arrayList.get(i).getValor()+sum;
+                sum=arrayList.get(i).getKilos_Miel()+sum;
             }
                 for (int i = 0; i < arrayList.size(); i++) {
-                    if (arrayList.get(i).getValor()!=0) {
-                            double porcentaje=(arrayList.get(i).getValor()/sum) *100;
-                dataset.setValue(arrayList.get(i).getNombreAutor(), porcentaje);
+                    if (arrayList.get(i).getKilos_Miel()!=0) {
+                            double porcentaje=(arrayList.get(i).getKilos_Miel()/sum) *100;
+                dataset.setValue(arrayList.get(i).getPaneles_con_alimento(), porcentaje);
                         }else{
                     double porcentaje=0;
-                dataset.setValue(arrayList.get(i).getNombreAutor(), porcentaje);
+                dataset.setValue(arrayList.get(i).getPaneles_con_alimento(), porcentaje);
                     }
             }
                 
