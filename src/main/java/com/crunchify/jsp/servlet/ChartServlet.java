@@ -36,16 +36,18 @@ public class ChartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("image/png");
         OutputStream outputStream = response.getOutputStream();
-        JFreeChart chart = getChart();
-         JFreeChart chart2 = getChart2();
+        JFreeChart[] chart = getChart();
+        
         int width = 500;
         int height = 350;
-        ChartUtilities.writeChartAsPNG(outputStream, chart, width, height);
-        ChartUtilities.writeChartAsPNG(outputStream, chart2, width, height);
+        for (int i = 0; i < chart.length; i++) {
+            ChartUtilities.writeChartAsPNG(outputStream, chart[i], width, height);
+        }
+        
 
     }
 
-    public JFreeChart getChart() {
+    public JFreeChart[] getChart() {
 
         DefaultPieDataset dataset = new DefaultPieDataset();
         ObraDAO dAO = new ObraDAO();
@@ -75,34 +77,30 @@ public class ChartServlet extends HttpServlet {
         chart.setBorderStroke(new BasicStroke(5.0f));
         chart.setBorderVisible(true);
 
-        return chart;
-    }
-    
-    public JFreeChart getChart2() {
-		
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(25.0, "Series 1", "Category 1");   
-        dataset.addValue(34.0, "Series 1", "Category 2");   
-        dataset.addValue(19.0, "Series 2", "Category 1");   
-        dataset.addValue(29.0, "Series 2", "Category 2");   
-        dataset.addValue(41.0, "Series 3", "Category 1");   
-        dataset.addValue(33.0, "Series 3", "Category 2");   
+        
+        DefaultCategoryDataset dataset2 = new DefaultCategoryDataset();
+        dataset2.addValue(25.0, "Series 1", "Category 1");   
+        dataset2.addValue(34.0, "Series 1", "Category 2");   
+        dataset2.addValue(19.0, "Series 2", "Category 1");   
+        dataset2.addValue(29.0, "Series 2", "Category 2");   
+        dataset2.addValue(41.0, "Series 3", "Category 1");   
+        dataset2.addValue(33.0, "Series 3", "Category 2");   
 
 		
-        JFreeChart chart = ChartFactory.createBarChart3D(
+        JFreeChart chart2 = ChartFactory.createBarChart3D(
             "3D Bar Chart Demo",      // chart title
             "Category",               // domain axis label
             "Value",                  // range axis label
-            dataset,                  // data
+            dataset2,                  // data
             PlotOrientation.VERTICAL, // orientation
             true,                     // include legend
             true,                     // tooltips
             false                     // urls
         );
 
-        CategoryPlot plot = chart.getCategoryPlot();
-        CategoryAxis axis = plot.getDomainAxis();
-        axis.setCategoryLabelPositions(
+        CategoryPlot plot = chart2.getCategoryPlot();
+        CategoryAxis axis2 = plot.getDomainAxis();
+        axis2.setCategoryLabelPositions(
             CategoryLabelPositions.createUpRotationLabelPositions(Math.PI / 8.0)
         );
         
@@ -110,9 +108,11 @@ public class ChartServlet extends HttpServlet {
         renderer.setItemLabelsVisible(true);
         BarRenderer r = (BarRenderer) renderer;
         r.setMaximumBarWidth(0.05);
-        return chart;
+        JFreeChart[] chartfinal= new JFreeChart[2];
+        chartfinal[0]=chart;
+        chartfinal[1]=chart2;
+        return chartfinal;
 
 		
 	}
-
-}
+    }
