@@ -41,5 +41,6 @@ body {
     
     %>
     <img src="ChartServlet" />
+    Descargar Excel <a href="HSSFCreate">Descargar</a> 
 </body>
 </html>
