@@ -40,9 +40,9 @@ public class ChartServlet extends HttpServlet {
         
         int width = 500;
         int height = 350;
-        for (int i = 0; i < chart.length; i++) {
-            ChartUtilities.writeChartAsPNG(outputStream, chart[i], width, height);
-        }
+        ChartUtilities.writeChartAsPNG(outputStream, chart[1], width, height);
+        ChartUtilities.writeChartAsPNG(outputStream, chart[0], width, height);
+       
         
 
     }
