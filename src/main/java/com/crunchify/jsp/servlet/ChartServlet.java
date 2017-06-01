@@ -24,47 +24,49 @@ import org.jfree.data.general.DefaultPieDataset;
 
 public class ChartServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        	response.setContentType("image/png");
-		OutputStream outputStream = response.getOutputStream();
-		JFreeChart chart = getChart();
-		int width = 500;
-		int height = 350;
-		ChartUtilities.writeChartAsPNG(outputStream, chart, width, height);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("image/png");
+        OutputStream outputStream = response.getOutputStream();
+        JFreeChart chart = getChart();
+        int width = 500;
+        int height = 350;
+        ChartUtilities.writeChartAsPNG(outputStream, chart, width, height);
 
-	}
+    }
 
-	public JFreeChart getChart() {
-		
-                DefaultPieDataset dataset = new DefaultPieDataset();
-                ColmenaDAO dAO=new ColmenaDAO();
-	        //Crear la capa de servicios que se enlace con el DAO
-                ArrayList<Colmena> arrayList=(ArrayList<Colmena>) dAO.findAll();
-                           
-                for (int i = 0; i < arrayList.size(); i++) {
-                    if (Integer.parseInt(arrayList.get(i).getPaneles_con_alimento())!=0) {
-                            double porcentaje=(Integer.parseInt(arrayList.get(i).getPaneles_con_alimento())/10) *100;
+    public JFreeChart getChart() {
+
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        ColmenaDAO dAO = new ColmenaDAO();
+        //Crear la capa de servicios que se enlace con el DAO
+        ArrayList<Colmena> arrayList = (ArrayList<Colmena>) dAO.findAll();
+
+        for (int i = 0; i < arrayList.size(); i++) {
+            double porcentaje = (Integer.parseInt(arrayList.get(i).getPaneles_con_alimento()) / 10) * 100;
+            if (Integer.parseInt(arrayList.get(i).getPaneles_con_alimento()) != 0) {
+
                 dataset.setValue(arrayList.get(i).getPaneles_con_alimento(), porcentaje);
-                        }else{
-                    double porcentaje=0;
-                dataset.setValue(arrayList.get(i).getPaneles_con_alimento(), porcentaje);
-                    }
+            } else {
+                dataset.setValue(arrayList.get(i).getPaneles_con_alimento(), 1 - porcentaje);
             }
-                
+        }
 
-		boolean legend = true;
-		boolean tooltips = false;
-		boolean urls = false;
+        boolean legend = true;
+        boolean tooltips = false;
+        boolean urls = false;
 
-		JFreeChart chart = ChartFactory.createPieChart("Obras", dataset, legend, tooltips, urls);
+        JFreeChart chart = ChartFactory.createPieChart("Obras", dataset, legend, tooltips, urls);
 
-		chart.setBorderPaint(Color.GREEN);
-		chart.setBorderStroke(new BasicStroke(5.0f));
-		chart.setBorderVisible(true);
+        chart.setBorderPaint(Color.GREEN);
 
-		return chart;
-	}
+        chart.setBorderStroke(
+                new BasicStroke(5.0f));
+        chart.setBorderVisible(
+                true);
+
+        return chart;
+    }
 
 }

@@ -152,7 +152,7 @@ public class ColmenaDAO implements IBaseDatos<Colmena> {
     }
     public List<Colmena> findAll2() {
         List<Colmena> departamentos = null;
-        String query = "SELECT Kilos_Miel FROM Recolector";
+        String query = "SELECT sum(Kilos_Miel) as Kilos FROM Recolector group by id_colmena";
         Connection connection = null;
         try {
             connection = Conexion.getConnection();
@@ -170,7 +170,7 @@ public class ColmenaDAO implements IBaseDatos<Colmena> {
 
                 Colmena registro = new Colmena();
                 
-                double valor = rs.getDouble("Kilos_Miel");
+                double valor = rs.getDouble("Kilos");
                 registro.setKilos_Miel(valor);
 
                 departamentos.add(registro);
