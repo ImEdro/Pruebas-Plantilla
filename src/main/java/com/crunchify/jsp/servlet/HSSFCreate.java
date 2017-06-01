@@ -6,7 +6,9 @@
 package com.crunchify.jsp.servlet;
 
 import edu.co.sergio.mundo.dao.ObraDAO;
+import edu.co.sergio.mundo.vo.Obra;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,19 +37,19 @@ public class HSSFCreate extends HttpServlet {
     protected void processRequest(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
 
-        ObraDAO d = new ObraDAO();
+        ObraDAO dAO = new ObraDAO();
 
         response.setContentType("application/vnd.ms-excel");
         HSSFWorkbook wb = new HSSFWorkbook();
         HSSFSheet sheet = wb.createSheet("new sheet");
 
         Map<String, Object[]> data = new HashMap<String, Object[]>();
-
-        data.put("1", new Object[]{"Nombre Autor", "Nombre Obra","Descripcion","Estilo","Valor"});
-        for (int i = 0; i < d.findAll().size(); i++) {
-            String j = ""+i;
-            data.put(j, new Object[]{d.findAll().get(i).getNombreAutor(),d.findAll().get(i).getNombreObra(),
-            d.findAll().get(i).getDescripcion(),d.findAll().get(i).getEstilo(),d.findAll().get(i).getValor()});
+        ArrayList<Obra> arrayList = (ArrayList<Obra>) dAO.findAll();
+        data.put("1", new Object[]{"Nombre Autor", "Nombre Obra", "Descripcion", "Estilo", "Valor"});
+        for (int i = 0; i < arrayList.size(); i++) {
+            String j = "" + i;
+            data.put(j, new Object[]{arrayList.get(i).getNombreAutor(),arrayList.get(i).getNombreObra(),
+                arrayList.get(i).getDescripcion(), arrayList.get(i).getEstilo(), arrayList.get(i).getValor()});
         }
 
         Set<String> keyset = data.keySet();
