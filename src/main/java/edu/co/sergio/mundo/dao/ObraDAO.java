@@ -32,7 +32,7 @@ public class ObraDAO implements IBaseDatos<Colmena> {
      */
     public List<Colmena> findAll() {
         List<Colmena> obras = null;
-        String query = "Select panales_con_alimento form Colmena where id_colmena = 1;";
+        String query = "Select panales_con_alimento from Colmena where id_colmena = 1";
         Connection connection = null;
         try {
             connection = Conexion.getConnection();

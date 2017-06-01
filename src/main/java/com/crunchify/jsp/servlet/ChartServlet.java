@@ -42,13 +42,10 @@ public class ChartServlet extends HttpServlet {
                 ObraDAO dAO=new ObraDAO();
 	        //Crear la capa de servicios que se enlace con el DAO
                 ArrayList<Colmena> arrayList=(ArrayList<Colmena>) dAO.findAll();
-                double sum = 0;
-                for (int i = 0; i < arrayList.size(); i++) {
-                sum=arrayList.get(i).getKilos_Miel()+sum;
-            }
+                           
                 for (int i = 0; i < arrayList.size(); i++) {
                     if (arrayList.get(i).getKilos_Miel()!=0) {
-                            double porcentaje=(arrayList.get(i).getKilos_Miel()/sum) *100;
+                            double porcentaje=(arrayList.get(i).getKilos_Miel()/10) *100;
                 dataset.setValue(arrayList.get(i).getPaneles_con_alimento(), porcentaje);
                         }else{
                     double porcentaje=0;
