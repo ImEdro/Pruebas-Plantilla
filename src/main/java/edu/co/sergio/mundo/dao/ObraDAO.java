@@ -156,4 +156,55 @@ public class ObraDAO implements IBaseDatos<Obra> {
 
         return result;
     }
+    public List<Obra> findAll2() {
+        List<Obra> departamentos = null;
+        String query = "SELECT * FROM Depto";
+        Connection connection = null;
+        try {
+            connection = Conexion.getConnection();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ObraDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            
+            String autor = null;
+            String nombre = null;
+            String descripcion = null;
+            String estilo = null;
+            double valor = 0;
+
+            while (rs.next()) {
+                if (departamentos == null) {
+                    departamentos = new ArrayList<Obra>();
+                }
+
+                Obra registro = new Obra();
+                autor = rs.getString("nombreAutor");
+                registro.setNombreAutor(autor);
+
+                nombre = rs.getString("nombreObra");
+                registro.setNombreObra(nombre);
+                
+                descripcion = rs.getString("descripcion");
+                registro.setDescripcion(descripcion);
+                
+                estilo = rs.getString("estilo");
+                registro.setEstilo(estilo);
+                
+                valor = rs.getDouble("estilo");
+                registro.setValor(valor);
+
+                departamentos.add(registro);
+            }
+            st.close();
+
+        } catch (SQLException e) {
+            System.out.println("Problemas al obtener la lista de Departamentos");
+            e.printStackTrace();
+        }
+
+        return departamentos;
+    }
 }
