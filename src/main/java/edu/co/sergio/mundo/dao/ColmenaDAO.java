@@ -162,8 +162,6 @@ public class ColmenaDAO implements IBaseDatos<Colmena> {
         try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(query);
-            
-            double valor = 0;
 
             while (rs.next()) {
                 if (departamentos == null) {
@@ -172,7 +170,7 @@ public class ColmenaDAO implements IBaseDatos<Colmena> {
 
                 Colmena registro = new Colmena();
                 
-                valor = rs.getDouble("Kilos_Miel");
+                double valor = rs.getDouble("Kilos_Miel");
                 registro.setKilos_Miel(valor);
 
                 departamentos.add(registro);
