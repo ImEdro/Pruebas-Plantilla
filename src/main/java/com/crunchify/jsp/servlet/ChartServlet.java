@@ -44,12 +44,11 @@ public class ChartServlet extends HttpServlet {
         ArrayList<Colmena> arrayList = (ArrayList<Colmena>) dAO.findAll();
 
         for (int i = 0; i < arrayList.size(); i++) {
-            double porcentaje = (Integer.parseInt(arrayList.get(i).getPaneles_con_alimento()) / 10) * 100;
-            if (Integer.parseInt(arrayList.get(i).getPaneles_con_alimento()) != 0) {
-
-                dataset.setValue(arrayList.get(i).getPaneles_con_alimento(), porcentaje);
+            double porcentaje = (arrayList.get(i).getPaneles_con_alimento() / 10) * 100;
+            if (arrayList.get(i).getPaneles_con_alimento() != 0) {
+                dataset.setValue("colmena 1", porcentaje);
             } else {
-                dataset.setValue(arrayList.get(i).getPaneles_con_alimento(), 1 - porcentaje);
+                dataset.setValue("otros", 1 - porcentaje);
             }
         }
 

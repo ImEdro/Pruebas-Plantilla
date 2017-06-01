@@ -16,26 +16,26 @@ import javax.servlet.RequestDispatcher;
  
 public class HelloCrunchify extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // reading the user input
-        String autor = request.getParameter("autor");
-        String valor = request.getParameter("valor");
-        //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
-        ColmenaDAO dao = new ColmenaDAO();
-        
-        Colmena obra = new Colmena();
-        obra.setPaneles_con_alimento(autor);
-        obra.setKilos_Miel(Integer.valueOf(valor));
-        dao.insert(obra);
-        
-        //Listando la informacion  
-        List<Colmena> obras =  dao.findAll();
-        request.setAttribute("obras", obras);
-       
-       
-        //Redireccionando la informacion
-        RequestDispatcher redireccion = request.getRequestDispatcher("index.jsp");
-        redireccion.forward(request, response);
-        
-        
+//        // reading the user input
+//        String autor = request.getParameter("autor");
+//        String valor = request.getParameter("valor");
+//        //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
+//        ColmenaDAO dao = new ColmenaDAO();
+//        
+//        Colmena obra = new Colmena();
+//        obra.setPaneles_con_alimento(autor);
+//        obra.setKilos_Miel(Integer.valueOf(valor));
+//        dao.insert(obra);
+//        
+//        //Listando la informacion  
+//        List<Colmena> obras =  dao.findAll();
+//        request.setAttribute("obras", obras);
+//       
+//       
+//        //Redireccionando la informacion
+//        RequestDispatcher redireccion = request.getRequestDispatcher("index.jsp");
+//        redireccion.forward(request, response);
+//        
+//        
         }
 }

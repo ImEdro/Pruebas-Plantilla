@@ -42,7 +42,7 @@ public class ColmenaDAO implements IBaseDatos<Colmena> {
         try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(query);
-            String Autor = null;
+            int Autor = 0;
             double valor = 0;
 
             while (rs.next()) {
@@ -50,7 +50,7 @@ public class ColmenaDAO implements IBaseDatos<Colmena> {
                 if (obras == null) {
                     obras = new ArrayList<Colmena>();
                 }
-                Autor = rs.getString("panales_con_alimento");
+                Autor = rs.getInt("panales_con_alimento");
                 registro.setPaneles_con_alimento(Autor);
                 obras.add(registro);
             }
@@ -83,7 +83,7 @@ public class ColmenaDAO implements IBaseDatos<Colmena> {
         PreparedStatement preparedStmt = null;
         try {
             preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setString(1, t.getPaneles_con_alimento());
+            preparedStmt.setInt(1, t.getPaneles_con_alimento());
             preparedStmt.setDouble(5, t.getKilos_Miel());
             result = preparedStmt.execute();
         } catch (SQLException e) {
