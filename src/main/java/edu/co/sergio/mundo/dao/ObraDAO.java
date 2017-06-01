@@ -158,7 +158,7 @@ public class ObraDAO implements IBaseDatos<Obra> {
     }
     public List<Obra> findAll2() {
         List<Obra> departamentos = null;
-        String query = "SELECT nombreAutor,nombreObra,descripcion,estilo,valor FROM Depto";
+        String query = "SELECT nombreAutor,nombreObra,descripcion,estilo,valor FROM Obra";
         Connection connection = null;
         try {
             connection = Conexion.getConnection();
