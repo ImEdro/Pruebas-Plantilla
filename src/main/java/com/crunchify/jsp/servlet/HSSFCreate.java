@@ -47,7 +47,7 @@ public class HSSFCreate extends HttpServlet {
         ArrayList<Obra> arrayList = (ArrayList<Obra>) dAO.findAll();
         data.put("1", new Object[]{"Nombre Autor", "Nombre Obra", "Descripcion", "Estilo", "Valor"});
         for (int i = 0; i < arrayList.size(); i++) {
-            String j = "" + i;
+            String j = "" + i+1;
             data.put(j, new Object[]{arrayList.get(i).getNombreAutor(),arrayList.get(i).getNombreObra(),
                 arrayList.get(i).getDescripcion(), arrayList.get(i).getEstilo(), arrayList.get(i).getValor()});
         }
