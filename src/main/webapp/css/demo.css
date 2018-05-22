@@ -1,0 +1,702 @@
+.arrow {
+  font-size: 2em;
+  color: #363f85;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  transition: 0.2s;
+}
+.arrow#left-arrow {
+  -webkit-transform: translate(-11em, -50%);
+  -moz-transform: translate(-11em, -50%);
+  -ms-transform: translate(-11em, -50%);
+  -o-transform: translate(-11em, -50%);
+  transform: translate(-11em, -50%);
+}
+.arrow#right-arrow {
+  -webkit-transform: translate(10em, -50%);
+  -moz-transform: translate(10em, -50%);
+  -ms-transform: translate(10em, -50%);
+  -o-transform: translate(10em, -50%);
+  transform: translate(10em, -50%);
+}
+.arrow:hover {
+  color: #B3B2AD;
+}
+
+.slider {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 200px;
+}
+
+.slide {
+  float: left;
+  position: relative;
+  width: 33.33333%;
+  height: 100%;
+  overflow-x: hidden;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+.slide#slide-center {
+  z-index: 1;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.75);
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+.slide-holder {
+  width: 300%;
+  height: 100%;
+  display: block;
+  position: relative;
+  top: 0;
+  -webkit-transform: translateX(-33.33333%);
+  -moz-transform: translateX(-33.33333%);
+  -ms-transform: translateX(-33.33333%);
+  -o-transform: translateX(-33.33333%);
+  transform: translateX(-33.33333%);
+}
+
+.slide-bg {
+  width: 33.33333%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  float: left;
+  margin: 0;
+}
+
+#slide-left .bg-previous {
+  background-image: url("http://theworldwentaway.files.wordpress.com/2010/03/wallpaper-de-god-of-war-31.jpg");
+}
+#slide-left .bg-current {
+  background-image: url("https://wallpapermemory.com/uploads/414/darksiders-2-ii-background-full-hd-1920x1080-466234.jpg");
+}
+#slide-left .bg-next {
+  background-image: url("https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_the_witcher_3_wild_hunt_31_2560x1440.jpg&height=450&width=800&fill-to-fit");
+}
+
+#slide-center .bg-previous {
+  background-image: url("https://wallpapermemory.com/uploads/414/darksiders-2-ii-background-full-hd-1920x1080-466234.jpg");
+}
+#slide-center .bg-current {
+  background-image: url("https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_the_witcher_3_wild_hunt_31_2560x1440.jpg&height=450&width=800&fill-to-fit");
+}
+#slide-center .bg-next {
+  background-image: url("http://theworldwentaway.files.wordpress.com/2010/03/wallpaper-de-god-of-war-31.jpg");
+}
+
+#slide-right .bg-previous {
+  background-image: url("https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_the_witcher_3_wild_hunt_31_2560x1440.jpg&height=450&width=800&fill-to-fit");
+}
+#slide-right .bg-current {
+  background-image: url("http://theworldwentaway.files.wordpress.com/2010/03/wallpaper-de-god-of-war-31.jpg");
+}
+#slide-right .bg-next {
+  background-image: url("https://wallpapermemory.com/uploads/414/darksiders-2-ii-background-full-hd-1920x1080-466234.jpg");
+}
+
+#calificaciones {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+
+#calificaciones p {
+  text-align: center;
+}
+
+#calificaciones label {
+  font-size: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
+
+.overlay{position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.3);
+  overflow: hidden;
+  width: 100%;
+  height:0;
+  transition: .5s ease;
+}
+.carousel-item:hover .overlay{
+  bottom: 0;
+  height: 100%;
+}
+.text{
+  white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.tim-row {
+    margin-bottom: 20px;
+}
+
+.tim-white-buttons {
+    background-color: #777777;
+}
+
+.typography-line {
+    padding-left: 25%;
+    margin-bottom: 35px;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.typography-line span {
+    bottom: 10px;
+    color: #c0c1c2;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 13px;
+    left: 0;
+    margin-left: 20px;
+    position: absolute;
+    width: 260px;
+    text-transform: none;
+}
+
+.tim-row {
+    padding-top: 60px;
+}
+
+.tim-row h3 {
+    margin-top: 0;
+}
+
+.switch {
+    margin-right: 20px;
+}
+
+#navbar-full .navbar {
+    border-radius: 0 !important;
+    margin-bottom: 15px;
+    z-index: 2;
+}
+
+#menu-dropdown .navbar {
+    border-radius: 3px;
+}
+
+#pagination-row .pagination-container {
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#icons-row i.now-ui-icons {
+    font-size: 30px;
+}
+
+.space {
+    height: 130px;
+    display: block;
+}
+
+.space-110 {
+    height: 110px;
+    display: block;
+}
+
+.space-50 {
+    height: 50px;
+    display: block;
+}
+
+.space-70 {
+    height: 70px;
+    display: block;
+}
+
+.navigation-example .img-src {
+    background-attachment: scroll;
+}
+
+.navigation-example {
+    background-position: center center;
+    background-size: cover;
+    margin-top: 0;
+    min-height: 740px;
+    height: 100%;
+}
+
+#notifications {
+    background-color: #FFFFFF;
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+.tim-note {
+    text-transform: capitalize;
+}
+
+#buttons .btn,
+#javascriptComponents .btn {
+    margin: 0 0px 10px;
+}
+
+.space-100 {
+    height: 100px;
+    display: block;
+    width: 100%;
+}
+
+.be-social {
+    padding-bottom: 20px;
+    /*     border-bottom: 1px solid #aaa; */
+    margin: 0 auto 40px;
+}
+
+.txt-white {
+    color: #FFFFFF;
+}
+
+.txt-gray {
+    color: #ddd !important;
+}
+
+.parallax {
+    width: 100%;
+    height: 570px;
+    display: block;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.logo-container .logo {
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #333333;
+    width: 50px;
+    float: left;
+}
+
+.logo-container .brand {
+    font-size: 16px;
+    color: #FFFFFF;
+    line-height: 18px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 7px;
+    width: 70px;
+    height: 40px;
+    text-align: left;
+}
+
+.logo-container .brand-material {
+    font-size: 18px;
+    margin-top: 15px;
+    height: 25px;
+    width: auto;
+}
+
+.logo-container .logo img {
+    width: 100%;
+}
+
+.navbar-small .logo-container .brand {
+    color: #333333;
+}
+
+.fixed-section {
+    top: 90px;
+    max-height: 80vh;
+    overflow: scroll;
+    position: sticky;
+}
+
+.fixed-section ul {
+    padding: 0;
+}
+
+.fixed-section ul li {
+    list-style: none;
+}
+
+.fixed-section li a {
+    font-size: 14px;
+    padding: 2px;
+    display: block;
+    color: #666666;
+}
+
+.fixed-section li a.active {
+    color: #00bbff;
+}
+
+.fixed-section.float {
+    position: fixed;
+    top: 100px;
+    width: 200px;
+    margin-top: 0;
+}
+
+.parallax .parallax-image {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+
+.parallax .parallax-image img {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .parallax .parallax-image {
+        width: 100%;
+        height: 640px;
+        overflow: hidden;
+    }
+    .parallax .parallax-image img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+
+/*.separator{
+    content: "Separator";
+    color: #FFFFFF;
+    display: block;
+    width: 100%;
+    padding: 20px;
+}
+.separator-line{
+    background-color: #EEE;
+    height: 1px;
+    width: 100%;
+    display: block;
+}
+.separator.separator-gray{
+    background-color: #EEEEEE;
+}*/
+
+.social-buttons-demo .btn {
+    margin-right: 5px;
+    margin-bottom: 7px;
+}
+
+.img-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+}
+
+.lightbox img {
+    width: 100%;
+}
+
+.lightbox .modal-content {
+    overflow: hidden;
+}
+
+.lightbox .modal-body {
+    padding: 0;
+}
+
+@media screen and (min-width: 991px) {
+    .lightbox .modal-dialog {
+        width: 960px;
+    }
+}
+
+@media (max-width: 991px) {
+    .fixed-section.affix {
+        position: relative;
+        margin-bottom: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn,
+    .btn-morphing {
+        margin-bottom: 10px;
+    }
+    .parallax .motto {
+        top: 170px;
+        margin-top: 0;
+        font-size: 60px;
+        width: 270px;
+    }
+}
+
+
+/*       Loading dots  */
+
+
+/*      transitions */
+
+.presentation .front,
+.presentation .front:after,
+.presentation .front .btn,
+.logo-container .logo,
+.logo-container .brand {
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
+#images h4 {
+    margin-bottom: 30px;
+}
+
+#javascriptComponents {
+    padding-bottom: 0;
+}
+
+
+/*      layer animation          */
+
+.layers-container {
+    display: block;
+    margin-top: 50px;
+    position: relative;
+}
+
+.layers-container img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.animate {
+    transition: 1.5s ease-in-out;
+    -moz-transition: 1.5s ease-in-out;
+    -webkit-transition: 1.5s ease-in-out;
+}
+
+.navbar-default.navbar-small .logo-container .brand {
+    color: #333333;
+}
+
+.navbar-transparent.navbar-small .logo-container .brand {
+    color: #FFFFFF;
+}
+
+.navbar-default.navbar-small .logo-container .brand {
+    color: #333333;
+}
+
+.sharing-area {
+    margin-top: 80px;
+}
+
+.sharing-area .btn {
+    margin: 15px 4px 0;
+}
+
+.section-thin,
+.section-notifications {
+    padding: 0;
+}
+
+.section-navbars {
+    padding-top: 0;
+}
+
+#navbar .navbar {
+    margin-bottom: 20px;
+}
+
+#navbar .navbar-collapse,
+#menu-dropdown .navbar-collapse,
+#navbar-default .navbar-collapse,
+#navbar-white .navbar-collapse,
+#navbar-info .navbar-collapse,
+#navbar-success .navbar-collapse,
+#navbar-warning .navbar-collapse,
+#navbar-danger .navbar-collapse {
+    display: none;
+}
+
+.section-tabs {
+    background: #EEEEEE;
+}
+
+.section-pagination {
+    padding-bottom: 0;
+}
+
+.section-download {
+    padding-top: 130px;
+}
+
+.section-download .description {
+    margin-bottom: 60px;
+}
+
+.section-download h4 {
+    margin-bottom: 25px;
+}
+
+.section-examples a {
+    text-decoration: none;
+}
+
+.section-examples a+a {
+    margin-top: 30px;
+}
+
+.section-examples h5 {
+    margin-top: 30px;
+}
+
+.components-page .wrapper>.header,
+.tutorial-page .wrapper>.header {
+    height: 500px;
+    padding-top: 128px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.components-page .title,
+.tutorial-page .title {
+    color: #FFFFFF;
+}
+
+.brand .h1-seo {
+    font-size: 2.8em;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.brand .n-logo {
+    max-width: 100px;
+    margin-bottom: 40px;
+}
+
+.invision-logo {
+    max-width: 70px;
+    top: -2px;
+    position: relative;
+}
+
+.creative-tim-logo {
+    max-width: 140px;
+    top: -2px;
+    position: relative;
+}
+
+.section-javascript .title {
+    margin-bottom: 0;
+}
+
+.navbar .switch-background {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.navbar .navbar-logo.navbar-switch {
+    top: 0px;
+    width: 150px;
+    margin: 0;
+    margin-left: 78px;
+}
+
+.landing-page .navbar .navbar-logo.navbar-switch,
+.profile-page .navbar .navbar-logo.navbar-switch {
+    margin-left: 111px;
+}
+
+.navbar .navbar-logo.navbar-switch .hidden {
+    display: none;
+}
+
+[data-background-color="orange"] .typography-line span {
+    color: rgba(255, 255, 255, .5);
+}
+
+.navbar-transparent .navbar-logo.navbar-switch {
+    display: none;
+}
+
+.navbar .switch-background .bootstrap-switch {
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
+
+/*.navbar-transparent .switch-background{
+    display: none;
+}*/
+
+.section-signup .col .btn {
+    margin-top: 30px;
+}
+
+#buttons-row .btn {
+    margin-bottom: 10px;
+}
+
+.section-basic {
+    padding-top: 0;
+}
+
+.section-images {
+    padding-bottom: 0;
+}
+
+@media screen and (max-width: 991px) {
+    .section-navbars .navbar-collapse {
+        display: none !important;
+    }
+}
