@@ -10,33 +10,59 @@
     
     <dependencies>
         <dependency>
-	    <groupId>com.google.code.gson</groupId>
-	    <artifactId>gson</artifactId>
-	    <version>2.3</version>
-	</dependency>
-	<dependency>
-	    <groupId>javax.websocket</groupId>
-	    <artifactId>javax.websocket-api</artifactId>
-	    <version>1.1</version>
-	    <scope>provided</scope>
-	</dependency>
+            <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>3.16</version>
+                <type>jar</type>
+            </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+            <scope>provided</scope>
+            <version>6.0</version>
+        </dependency>
         <!-- Glassfish -->
         <dependency>
-	    <groupId>org.glassfish.main.common</groupId>
-	    <artifactId>glassfish-api</artifactId>
-	    <version>4.1.1</version>
-	</dependency>	
-	<dependency>
-	    <groupId>postgresql</groupId>
-	    <artifactId>postgresql</artifactId>
-	    <version>9.1-901-1.jdbc4</version>
-	</dependency>
+            <groupId>org.glassfish.main.common</groupId>
+            <artifactId>glassfish-api</artifactId>
+            <version>4.1.1</version>
+        </dependency>	
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901-1.jdbc4</version>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
             <type>jar</type>
         </dependency>
+        
+        <!-- Glassfish -->
+        -        <dependency>
+            -            <groupId>org.glassfish.extras</groupId>
+            -            <artifactId>glassfish-embedded-web</artifactId>
+            -            <version>3.1.1</version>
+            -        </dependency>	
+        -        
+        -		<!-- JDBC Driver -->
+        -		<dependency>
+            -    		<groupId>postgresql</groupId>
+            -    		<artifactId>postgresql</artifactId>
+            -    		<version>9.0-801.jdbc4</version>
+            -		</dependency>
+        -                
+        -                <dependency>
+            -                <artifactId>jfreechart</artifactId>
+            -                    <groupId>org.jfree</groupId>
+            -                    <version>1.0.14</version>
+            -                </dependency>
     </dependencies>
 
     
@@ -54,31 +80,31 @@
             </plugin>
             <!-- The maven app assembler plugin will generate a script that sets up the classpath and runs your project -->
             <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>appassembler-maven-plugin</artifactId>
-            <version>1.1.1</version>
-            <configuration>
-                <assembleDirectory>target</assembleDirectory>
-                <programs>
-                    <program>
-                        <mainClass>MainGlassfish</mainClass>
-                        <name>webapp</name>
-                    </program>
-                </programs>
-            </configuration>
-            <executions>
-                <execution>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>assemble</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <assembleDirectory>target</assembleDirectory>
+                    <programs>
+                        <program>
+                            <mainClass>MainGlassfish</mainClass>
+                            <name>webapp</name>
+                        </program>
+                    </programs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
                 	
         </plugins>
     </build>
-	<repositories>
+    <repositories>
         <repository>
             <id>java.net</id>
             <url>http://download.java.net/maven/glassfish</url>
