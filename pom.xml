@@ -39,7 +39,7 @@
         </dependency>
     </dependencies>
 
-    </dependencies>
+    
     
     <build>
         <finalName>catalog</finalName>

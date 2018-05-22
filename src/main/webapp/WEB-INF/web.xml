@@ -12,6 +12,127 @@
         <welcome-file>default.htm</welcome-file>
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name>ServletSesion</servlet-name>
+        <servlet-class>Controlador.ServletSesion</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletSesion</servlet-name>
+        <url-pattern>/ServletSesion</url-pattern>
+    </servlet-mapping>
+         <servlet>
+        <servlet-name>ServletUsuario</servlet-name>
+        <servlet-class>Controlador.ServletUsuario</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletUsuario</servlet-name>
+        <url-pattern>/ServletUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ServletNoticia</servlet-name>
+        <servlet-class>Controlador.ServletNoticia</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletNoticia</servlet-name>
+        <url-pattern>/ServletNoticia</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ServletJuegos</servlet-name>
+        <servlet-class>Controlador.ServletJuegos</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletJuegos</servlet-name>
+        <url-pattern>/ServletJuegos</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletCrearCuenta</servlet-name>
+        <servlet-class>Controlador.ServletCrearCuenta</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletCrearCuenta</servlet-name>
+        <url-pattern>/ServletCrearCuenta</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletDatosAdicionalesUsuario</servlet-name>
+        <servlet-class>Controlador.ServletDatosAdicionalesUsuario</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDatosAdicionalesUsuario</servlet-name>
+        <url-pattern>/ServletDatosAdicionalesUsuario</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletValidarSesion</servlet-name>
+        <servlet-class>Controlador.ServletValidarSesion</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletValidarSesion</servlet-name>
+        <url-pattern>/ServletValidarSesion</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletSolicitudAmistad</servlet-name>
+        <servlet-class>Controlador.ServletSolicitudAmistad</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletSolicitudAmistad</servlet-name>
+        <url-pattern>/ServletSolicitudAmistad</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>ServletTop</servlet-name>
+        <servlet-class>Controlador.ServletTop</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletTop</servlet-name>
+        <url-pattern>/ServletTop</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletJuegosUsuario</servlet-name>
+        <servlet-class>Controlador.ServletJuegosUsuario</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletJuegosUsuario</servlet-name>
+        <url-pattern>/ServletJuegosUsuario</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletInfoJuego</servlet-name>
+        <servlet-class>Controlador.ServletInfoJuego</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletInfoJuego</servlet-name>
+        <url-pattern>/ServletInfoJuego</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletNotificacion</servlet-name>
+        <servlet-class>Controlador.ServletNotificacion</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletNotificacion</servlet-name>
+        <url-pattern>/ServletNotificacion</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletRecomendacionJuegos</servlet-name>
+        <servlet-class>Controlador.ServletRecomendacionJuegos</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletRecomendacionJuegos</servlet-name>
+        <url-pattern>/ServletRecomendacionJuegos</url-pattern>
+    </servlet-mapping>
+        <servlet>
+        <servlet-name>ServletRecomendacionUsuarios</servlet-name>
+        <servlet-class>Controlador.ServletRecomendacionUsuarios</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletRecomendacionUsuarios</servlet-name>
+        <url-pattern>/ServletRecomendacionUsuarios</url-pattern>
+    </servlet-mapping>
     
     <servlet>
         <servlet-name>Hello</servlet-name>
